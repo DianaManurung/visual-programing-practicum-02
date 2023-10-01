@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Lenovo"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-10-01 02:09:55 PM"/>
+        <attribute name="created" value="TGVub3ZvO0RFU0tUT1AtMTZEMzE4SzsyMDIzLTA5LTI4OzA4OjM3OjE3IFBNOzI5MDg="/>
+        <attribute name="edited" value="TGVub3ZvO0RFU0tUT1AtMTZEMzE4SzsyMDIzLTEwLTAxOzAyOjA5OjU1IFBNOzM7Mjk5Ng=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="StudiKasus" type="String" array="False" size=""/>
+            <declare name="Nim" type="String" array="False" size=""/>
+            <declare name="Tugas" type="String" array="False" size=""/>
+            <declare name="Dosen" type="String" array="False" size=""/>
+            <declare name="HaridanPengumpulanTugas" type="String" array="False" size=""/>
+            <declare name="Hasil1" type="String" array="False" size=""/>
+            <declare name="TingkatKesulitan" type="Real" array="False" size=""/>
+            <declare name="HariDeadline" type="Real" array="False" size=""/>
+            <declare name="Status" type="String" array="False" size=""/>
+            <declare name="Prioritas" type="Real" array="False" size=""/>
+            <input variable="StudiKasus"/>
+            <input variable="Nim"/>
+            <input variable="Tugas"/>
+            <input variable="Dosen"/>
+            <input variable="HaridanPengumpulanTugas"/>
+            <input variable="TingkatKesulitan"/>
+            <input variable="HariDeadline"/>
+            <input variable="Status"/>
+            <assign variable="Prioritas" expression="TingkatKesulitan *(1.0/HariDeadline)"/>
+            <output expression="&quot;Prioritas :&quot;&amp;prioritas" newline="True"/>
+            <if expression="Prioritas&gt;3">
+                <then>
+                    <assign variable="Hasil1" expression="&quot;Penting! Anda harus mengerjakan tugas segera&quot;"/>
+                </then>
+                <else>
+                    <if expression="Prioritas &gt;=1.5 and prioritas &lt;=3">
+                        <then>
+                            <assign variable="Hasil1" expression="&quot;Tugas ini memiliki prioritas menengah&quot;"/>
+                        </then>
+                        <else>
+                            <if expression="Prioritas&lt;1.5">
+                                <then>
+                                    <assign variable="Hasil1" expression="&quot;Tugas ini relatif ringan, namun jangan tunda terlalu lama&quot;"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <output expression="StudiKasus&amp;&quot;|&quot;&amp;Nim&amp;&quot;|&quot;&amp;Tugas&amp;&quot;|&quot;&amp;Dosen&amp;&quot;|&quot;&amp;HaridanPengumpulanTugas&amp;&quot;|&quot;&amp;TingkatKesulitan&amp;&quot;|&quot;&amp;HariDeadline&amp;&quot;|&quot;&amp;Prioritas&amp;&quot;|&quot;&amp;Status" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
